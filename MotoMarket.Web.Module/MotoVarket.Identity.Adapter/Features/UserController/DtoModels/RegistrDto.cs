@@ -1,48 +1,46 @@
 ﻿using MotoMarket.Storage.PostgreSQL.Enums;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MotoMarket.Storage.PostgreSQL.Entities
+namespace MotoVarket.Identity.Adapter.Features.UserController.DtoModels
 {
-    public class User
+    public class RegistrDto
     {
-        /// <summary>
-        /// Идентификатор
-        /// </summary>
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Guid IsnUser { get; set; }
-
         /// <summary>
         /// Логин
         /// </summary>
-        [StringLength(255)]
-        public string Login { get; set; }
+        [Required]
+        public string Login { get; init; }
 
         /// <summary>
-        /// Hash пароля
+        /// Пароль
         /// </summary>
-        public string PasswordHash { get; set; }
+        [Required]
+        public string Password { get; init; }
 
         /// <summary>
         /// Роль
         /// </summary>
+        [Required]
         public UserRole Role { get; set; }
 
         /// <summary>
         /// Номер телефона
         /// </summary>
+        [Required]
         [StringLength(11)]
         public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Email почта
         /// </summary>
+        [Required]
         [StringLength(255)]
         public string Email { get; set; }
 
         /// <summary>
         /// Имя пользователя
         /// </summary>
+        [Required]
         [StringLength(255)]
         public string Nikname { get; set; }
     }
